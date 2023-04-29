@@ -9,6 +9,8 @@ import { Profile } from "./routes/Profile";
 import { Apply } from "./routes/Apply";
 import { Jobs } from "./routes/Jobs";
 import { JobsDetails } from "./routes/JobsDetails";
+import { StaffClass } from "./routes/StaffClass";
+import { ApplicantDetails } from "./routes/ApplicantDetails";
 
 const router = createBrowserRouter([
     {
@@ -38,6 +40,14 @@ const router = createBrowserRouter([
     {
         path: "/jobs/:id",
         element: <JobsDetails />,
+    },
+    {
+        path: "/class",
+        element: <StaffClass />,
+    },
+    {
+        path: "/class/:id",
+        element: <ApplicantDetails />,
     },
 ]);
 
