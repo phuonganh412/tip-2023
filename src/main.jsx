@@ -7,6 +7,8 @@ import { Login } from "./routes/Login";
 import { Register } from "./routes/Register";
 import { Profile } from "./routes/Profile";
 import { Apply } from "./routes/Apply";
+import { Jobs } from "./routes/Jobs";
+import { JobsDetails } from "./routes/JobsDetails";
 
 const router = createBrowserRouter([
     {
@@ -28,6 +30,14 @@ const router = createBrowserRouter([
     {
         path: "/apply",
         element: <Apply />,
+    },
+    {
+        path: "/jobs",
+        element: <Jobs />,
+    },
+    {
+        path: "/jobs/:id",
+        element: <JobsDetails />,
     },
 ]);
 
