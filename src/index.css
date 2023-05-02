@@ -1,71 +1,11 @@
 body {
     margin: 0;
 }
-
 .container {
     margin: 0;
     padding: 0 ;
     clear: both;
 }
-
-.topBar {
-    position: relative;
-    color: #fff;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.topBar::before {
-    content: '';
-    background-color: black;
-    position: absolute;
-    top:0;
-    bottom: 0;
-    left: -999px;
-    right: -999px;
-}
-.topBar>* {position: relative;}
-.contactInfo {
-    padding: 10px 0;
-}
-.topBar .contactInfo ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-}
-.topBar .contactInfo li {
-    margin: 0 30px 0 0;
-}
-.topBar .contactInfo li span {
-    margin: 0 5px 0 0;
-}
-.topBar .contactInfo a {
-    color: white;
-}
-.topBar .otherInfo {
-    display: flex;
-}
-.topBar .socialMedia {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 10px 0;
-    font-size: 20px;
-}
-.topBar .socialMedia li {
-    margin: 0 20px 0 0;
-}
-.topBar .socialMedia a {
-    color: #fff;
-}
-.topBar .socialMedia a:hover {
-    color: rgb(255, 97, 12);
-}
-.topBar .socialMedia button {
-    background-color: rgb(255, 97, 12);
-}
-
 
 .login-container, .register-container, .apply-container {
     display: flex;
@@ -114,7 +54,6 @@ p {
     justify-content: space-between;
     
 }
-
 .header-menu {
     flex: 1;
     display: inline-block;
@@ -125,9 +64,10 @@ p {
     justify-content: center;
 }
 
-.job-card {
+.job-card  {
     width: 400px;
     margin-bottom: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 }
 
 .job-card-description {
@@ -153,4 +93,105 @@ p {
     gap: 20px;
     padding-left: 20px;
     padding-right: 20px;
+}
+.homepage-container {
+    max-width: 100vw;
+    height: 100%;
+}
+.hero-section {
+    background-color: #062166;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.hero-section-content {
+    max-width: 100vw;
+    margin-bottom: 50px;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.search-bar input {
+    flex-grow: 1;
+    height: 48px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.search-bar button {
+    height: 48px;
+    margin-left: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #cd0e87;
+    color: #ffffff;
+    font-size: 16px;
+}
+.featured-jobs-section {
+    margin-top: 50px;
+}
+#featured-jobs-title {
+    text-align: center;
+}
+.see-all-jobs {
+    margin-top: 10px;
+    text-align: center;
+}
+.see-all-jobs button {
+    background-color: #cd0e87;
+    font-size: 16px;
+    height: 48px;
+}
+
+/* Mission and values section styles */
+
+.mission-values {
+    max-width: 100vw;
+    margin-top: 10px ;
+    padding: 24px;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Values section card styles */
+.value-card {
+    border: 1px solid #d9d9d9;
+    padding: 24px;
+    text-align: center;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-in-out;
+    cursor: pointer;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.value-card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.values-card h3 {
+    font-size: 24px;
+    margin: 16px;
+}
+
+.values-card p {
+    margin: 0 16px 16px 16px;
+    line-height: 1.5;
 }
