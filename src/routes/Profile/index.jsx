@@ -1,3 +1,8 @@
+import { Header } from "../../components/Header";
 export const Profile = () => {
-    return <div>Profile</div>;
+    return (
+        <>
+            <Header activePage="profile" />
+        </>
+    );
 };
