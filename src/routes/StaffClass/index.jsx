@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Table, Button, Tag } from "antd";
-
+import { HeaderStaff } from "../../components/HeaderStaff";
 export const StaffClass = () => {
     // mock data classes
     const data = [
@@ -93,6 +93,7 @@ export const StaffClass = () => {
 
     return (
         <div>
+            <HeaderStaff />
             <h1>Staff Class Page</h1>
             <Table dataSource={data} columns={columns} />
         </div>

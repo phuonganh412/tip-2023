@@ -12,30 +12,30 @@ export const Home = () => {
     const jobsList = [
         {
             id: 1,
-            title: "Student Services Officer",
-            type: "Seasonal",
-            salary: "$2000/month",
-            location: "Melbourne, VIC",
+            class: "Computer Science",
+            type: "Full-time",
+            salary: "$8000/month",
+            time: "Monday, 9:00 AM - 12:00 PM",
             description:
-                "This is an exciting and unique opportunity to be part of CorpU, and work with like-minded, motivated and skilled experts",
+                "We are seeking a highly qualified Lecturer in Computer Science to join our dynamic faculty. The role involves teaching undergraduate and postgraduate courses, conducting research, and contributing to curriculum development.",
         },
         {
             id: 2,
-            title: "Sessional Specialised Lecturers in Financial Planning",
+            class: "Advanced Mathematics",
             type: "Seasonal",
-            salary: "$5000/month",
-            location: "Melbourne, VIC",
+            salary: "$9000/month",
+            time: "Monday, 9:00 AM - 12:00 PM",
             description:
-                "We are seeking lecturers to teach subjects in the Graduate Diploma in Financial Planning (GDFP), a new AQF Level 8 course not yet approved for delivery. ",
+                "We are looking for an Assistant Professor of Mathematics with expertise in algebra or geometry. The successful candidate will deliver engaging lectures, supervise research projects, and collaborate with colleagues on curriculum enhancements.",
         },
         {
             id: 3,
-            title: "Lecturer: Information Technology (Academic Level B)",
+            class: "Information Technology",
             type: "Seasonal",
             salary: "$7000/month",
-            location: "Melbourne, VIC",
+            time: "Thursday, 1:00 PM - 5:00 PM",
             description:
-                "As a teaching focused Lecturer, you are responsible for the development, delivery and coordination of courses within STEMs undergraduate, honours and postgraduate courses in the discipline of Information Technology. ",
+                "As a teaching focused Lecturer, you are responsible for the development, delivery, and coordination of courses within STEMs undergraduate, honors, and postgraduate courses in the discipline of Information Technology.",
         },
     ];
     return (

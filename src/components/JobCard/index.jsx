@@ -9,8 +9,8 @@ export const JobCard = ({ job }) => {
             <Link to={`/jobs/${job.id}`}>
                 <Card hoverable style={{ width: 500 }} className="job-card">
                     <Meta
-                        title={job.title}
-                        description={`Location: ${job.location}`}
+                        title={job.class}
+                        description={`Teaching Time: ${job.time}`}
                     />
                     <Typography.Paragraph
                         ellipsis={{ rows: 2 }}
