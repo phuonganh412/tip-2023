@@ -1,12 +1,17 @@
-import { Button } from "antd";
+import { Button, Space } from "antd";
 import { Link } from "react-router-dom";
 
 export const HeaderLogin = () => {
     return (
         <div>
-            <Link to="/login">
-                <Button type="primary">Login</Button>
-            </Link>
+            <Space>
+                <Link to="/login">
+                    <Button type="primary">Login</Button>
+                </Link>
+                <Link to="/class">
+                    <Button type="primary">Staff Site</Button>
+                </Link>
+            </Space>
         </div>
     );
 };

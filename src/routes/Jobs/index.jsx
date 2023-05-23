@@ -1,68 +1,73 @@
 import { Header } from "../../components/Header";
 import { Row, Col } from "antd";
 import { JobCard } from "../../components/JobCard";
+
 export const Jobs = () => {
     const jobs = [
         {
             id: 1,
-            title: "Student Services Officer",
-            type: "Seasonal",
-            salary: "$2000/month",
-            location: "Melbourne, VIC",
+            class: "Computer Science",
+            type: "Full-time",
+            salary: "$8000/month",
+            time: "Monday, 9:00 AM - 12:00 PM",
             description:
-                "This is an exciting and unique opportunity to be part of CorpU, and work with like-minded, motivated and skilled experts",
+                "We are seeking a highly qualified Lecturer in Computer Science to join our dynamic faculty. The role involves teaching undergraduate and postgraduate courses, conducting research, and contributing to curriculum development.",
         },
         {
             id: 2,
-            title: "Sessional Specialised Lecturers in Financial Planning",
+            class: "Advanced Mathematics",
             type: "Seasonal",
-            salary: "$5000/month",
-            location: "Melbourne, VIC",
+            salary: "$9000/month",
+            time: "Monday, 9:00 AM - 12:00 PM",
             description:
-                "We are seeking lecturers to teach subjects in the Graduate Diploma in Financial Planning (GDFP), a new AQF Level 8 course not yet approved for delivery. ",
+                "We are looking for an Assistant Professor of Mathematics with expertise in algebra or geometry. The successful candidate will deliver engaging lectures, supervise research projects, and collaborate with colleagues on curriculum enhancements.",
         },
         {
             id: 3,
-            title: "Lecturer: Information Technology (Academic Level B)",
+            class: "Information Technology",
             type: "Seasonal",
             salary: "$7000/month",
-            location: "Melbourne, VIC",
+            time: "Thursday, 1:00 PM - 5:00 PM",
             description:
-                "As a teaching focused Lecturer, you are responsible for the development, delivery and coordination of courses within STEMs undergraduate, honours and postgraduate courses in the discipline of Information Technology. ",
+                "As a teaching focused Lecturer, you are responsible for the development, delivery, and coordination of courses within STEMs undergraduate, honors, and postgraduate courses in the discipline of Information Technology.",
         },
         {
             id: 4,
-            title: "Lecturer - Master of Public Health",
+            class: "Physics",
             type: "Full-time",
-            salary: "$7000/month",
-            location: "Melbourne, VIC",
+            salary: "$10000/month",
+            time: "Tuesday, 9:00 AM - 12:00 PM",
             description:
-                "We are now seeking applications from experienced academics to teach Master in Public Health to join our team. As an integral member of our team, you will contribute to the delivery of courses  at postgraduate levels and contribute to the organisational research program and administrative functions.",
+                "Join our prestigious Physics department as an Associate Professor. The role involves teaching advanced physics courses, supervising graduate students, and conducting cutting-edge research in a collaborative environment.",
         },
         {
             id: 5,
-            title: "Lecturer or Senior Lecturer in Social Work and Human Services",
-            type: "Full-time",
-            salary: "$7000/month",
-            location: "Melbourne, VIC",
+            class: "Engineering",
+            type: "Part-time",
+            salary: "$6000/month",
+            time: "Wednesday, 1:00 PM - 5:00 PM",
             description:
-                "We have an exciting opportunity available for a high-achieving, innovative, and resourceful Lecturer or Senior Lecturer in Social Work and Human Services to join our School of Law and Society. ",
+                "We are seeking a Senior Lecturer in Engineering to deliver high-quality instruction in areas such as civil engineering, mechanical engineering, or electrical engineering. The position offers a flexible schedule for work-life balance.",
         },
         {
             id: 6,
-            title: "Administration Officer",
-            type: "Full time",
-            salary: "$7000",
-            location: "Melbourne, VIC",
+            class: "Business Administration",
+            type: "Seasonal",
+            salary: "$12000/month",
+            time: "Monday, 9:00 AM - 12:00 PM",
             description:
-                "As an Administration Officer, you will ensure an efficient, effective, and timely customer-focused administration service with the correct implementation of all university policies that relate to the areas for which the position is responsible.",
+                "We are looking for an experienced Professor of Business Administration to lead our prestigious business school. The role involves teaching advanced courses, mentoring junior faculty, and contributing to strategic initiatives.",
         },
     ];
+
     return (
         <>
             <Header activePage="jobs" />
             <div className="jobs-container">
                 <h1>Job Listings</h1>
+                <p align="middle">
+                    We are looking for lecturers for these class!!!
+                </p>
                 <Row justify="center" align="middle">
                     {jobs.map((job) => (
                         <Col key={job.id} xs={24} sm={12} md={8} lg={8}>

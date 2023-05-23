@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Table, Tag, Button, Modal, Form, Input } from "antd";
+import { Table, Tag, Button, Modal, Form, Input, Space } from "antd";
+import { HeaderStaff } from "../../components/HeaderStaff";
 
 const { Column } = Table;
 
@@ -82,6 +83,8 @@ export const ApplicantDetails = () => {
 
     return (
         <>
+            <HeaderStaff />
+            <Space />
             <Table dataSource={applicants}>
                 <Column title="ID" dataIndex="id" key="id" />
                 <Column title="Name" dataIndex="name" key="name" />
