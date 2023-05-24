@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Table, Tag, Button, Modal, Form, Input, Space } from "antd";
 import { HeaderStaff } from "../../components/HeaderStaff";
 
@@ -12,7 +13,12 @@ export const ApplicantDetails = () => {
             email: "johndoe@gmail.com",
             phoneNumber: "0123456789",
             experience: "2 years",
-            availability: ["Monday 2pm-5pm", "Friday 9am-12pm"],
+            availability: [
+                "Monday 1pm-4pm",
+                "Tuesday 9am-12pm",
+                "Wednesday 1pm-4pm",
+                "Friday 9am-12pm",
+            ],
             status: "Pending",
         },
         {
@@ -106,7 +112,9 @@ export const ApplicantDetails = () => {
                     render={(availability, record) => (
                         <div>
                             {record.availability.map((time) => (
-                                <p key={time}>{time}</p>
+                                <p className="availability" key={time}>
+                                    {time}
+                                </p>
                             ))}
                         </div>
                     )}
@@ -130,6 +138,16 @@ export const ApplicantDetails = () => {
                                 Note
                             </Button>
                         </>
+                    )}
+                />
+                <Column
+                    title="Profile"
+                    dataIndex="profile"
+                    key="profile"
+                    render={(record) => (
+                        <Link to={`/staffProfile`}>
+                            <Button type="primary">View Full Profile</Button>
+                        </Link>
                     )}
                 />
                 <Column
