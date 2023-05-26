@@ -12,6 +12,8 @@ import { JobsDetails } from "./routes/JobsDetails";
 import { StaffClass } from "./routes/StaffClass";
 import { ApplicantDetails } from "./routes/ApplicantDetails";
 import { StaffProfile } from "./routes/StaffProfile";
+import { CreateClass } from "./routes/CreateClass";
+import { MyApplication } from "./routes/MyApplication";
 
 const router = createBrowserRouter([
     {
@@ -31,7 +33,7 @@ const router = createBrowserRouter([
         element: <Profile />,
     },
     {
-        path: "/apply",
+        path: "/apply/:id?",
         element: <Apply />,
     },
     {
@@ -53,6 +55,14 @@ const router = createBrowserRouter([
     {
         path: "/staffProfile",
         element: <StaffProfile />,
+    },
+    {
+        path: "/create-class",
+        element: <CreateClass />,
+    },
+    {
+        path: "/my-applications",
+        element: <MyApplication />,
     },
 ]);
 

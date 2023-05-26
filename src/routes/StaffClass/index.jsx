@@ -1,8 +1,15 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Table, Button, Tag } from "antd";
 import { HeaderStaff } from "../../components/HeaderStaff";
+import axios from "axios";
 export const StaffClass = () => {
+    const [classes, setClasses] = useState([]);
+    useEffect(() => {
+        axios.get("http://localhost:5555/api/job").then((response) => {
+            setClasses(response.data);
+        });
+    }, []);
     // mock data classes
     const data = [
         {
@@ -41,18 +48,18 @@ export const StaffClass = () => {
     const columns = [
         {
             title: "Class Code",
-            dataIndex: "classCode",
-            key: "classCode",
+            dataIndex: "_id",
+            key: "_id",
         },
         {
             title: "Class Name",
-            dataIndex: "className",
-            key: "className",
+            dataIndex: "class",
+            key: "class",
         },
         {
-            title: "Date",
-            dataIndex: "date",
-            key: "date",
+            title: "Job type",
+            dataIndex: "type",
+            key: "type",
         },
         {
             title: "Time",
@@ -60,21 +67,21 @@ export const StaffClass = () => {
             key: "time",
         },
         {
-            title: "Location",
-            dataIndex: "location",
-            key: "location",
+            title: "Salary",
+            dataIndex: "salary",
+            key: "salary",
         },
         {
-            title: "Number of Applicants",
-            dataIndex: "numApplicants",
-            key: "numApplicants",
+            title: "Number of applicants",
+            dataIndex: "numberOfApplicants",
+            key: "numberOfApplicants",
         },
         {
             title: "Action",
             key: "action",
             render: (record) => (
-                <Link to={`/class/${record.id}`}>
-                    <Button type="primary">View Class</Button>
+                <Link to={`/class/${record._id}`}>
+                    <Button type="primary">View applications</Button>
                 </Link>
             ),
         },
@@ -95,7 +102,7 @@ export const StaffClass = () => {
         <div>
             <HeaderStaff />
             <h1>Staff Class Page</h1>
-            <Table dataSource={data} columns={columns} />
+            <Table dataSource={classes} columns={columns} />
         </div>
     );
 };

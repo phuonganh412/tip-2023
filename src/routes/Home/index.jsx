@@ -4,40 +4,20 @@ import { Link } from "react-router-dom";
 import { SearchOutlined } from "@ant-design/icons";
 import { JobCard } from "../../components/JobCard";
 import { MissionValues } from "../../components/MissionValue";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const { Title, Text } = Typography;
 const { Content } = Layout;
 
 export const Home = () => {
-    const jobsList = [
-        {
-            id: 1,
-            class: "Computer Science",
-            type: "Full-time",
-            salary: "$8000/month",
-            time: "Monday, 9:00 AM - 12:00 PM",
-            description:
-                "We are seeking a highly qualified Lecturer in Computer Science to join our dynamic faculty. The role involves teaching undergraduate and postgraduate courses, conducting research, and contributing to curriculum development.",
-        },
-        {
-            id: 2,
-            class: "Advanced Mathematics",
-            type: "Seasonal",
-            salary: "$9000/month",
-            time: "Monday, 9:00 AM - 12:00 PM",
-            description:
-                "We are looking for an Assistant Professor of Mathematics with expertise in algebra or geometry. The successful candidate will deliver engaging lectures, supervise research projects, and collaborate with colleagues on curriculum enhancements.",
-        },
-        {
-            id: 3,
-            class: "Information Technology",
-            type: "Seasonal",
-            salary: "$7000/month",
-            time: "Thursday, 1:00 PM - 5:00 PM",
-            description:
-                "As a teaching focused Lecturer, you are responsible for the development, delivery, and coordination of courses within STEMs undergraduate, honors, and postgraduate courses in the discipline of Information Technology.",
-        },
-    ];
+    const [jobsList, setJobsList] = useState([]);
+    useEffect(() => {
+        axios.get("http://localhost:5555/api/job/featured").then((response) => {
+            setJobsList(response.data);
+        });
+    }, []);
+
     return (
         <>
             <Header activePage="home" />

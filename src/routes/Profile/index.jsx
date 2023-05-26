@@ -45,7 +45,7 @@ export const Profile = () => {
     };
     return (
         <div>
-            <Header />
+            <Header activePage="profile" />
             <div className="profile-container">
                 <Title level={1} className="profile-header">
                     Your Profile

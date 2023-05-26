@@ -18,6 +18,10 @@ const navItems = [
         key: "profile",
         label: <Link to="/profile">Profile</Link>,
     },
+    {
+        key: "my-applications",
+        label: <Link to="/my-applications">My Applications</Link>,
+    },
 ];
 
 export const HeaderMenu = ({ navKey }) => {
