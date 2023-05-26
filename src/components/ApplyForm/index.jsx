@@ -4,10 +4,22 @@ import { useState } from "react";
 export const JobForm = () => {
     const [form] = Form.useForm();
     const [experienceCount, setExperienceCount] = useState(1);
+    const [experience, setExperience] = useState([]);
     const [availabilityCount, setAvailabilityCount] = useState(1);
+    const [availability, setAvailability] = useState([]);
 
     const onFinish = (values) => {
-        console.log("Success:", values);
+        const { experience, availability, ...rest } = values;
+        setExperience(experience);
+        setAvailability(availability);
+        console.log("Success:");
+        console.log("Name:", rest.name);
+        console.log("Email:", rest.email);
+        console.log("Phone Number:", rest.phone);
+        console.log("Position:", rest.position);
+        console.log("Skills:", rest.skills);
+        console.log("Experience:", experience);
+        console.log("Availability:", availability);
     };
 
     const onFinishFailed = (errorInfo) => {
@@ -20,14 +32,24 @@ export const JobForm = () => {
 
     const removeExperience = (experienceIndex) => {
         setExperienceCount((prevCount) => prevCount - 1);
-        form.removeFields([`experience[${experienceIndex}]`]);
+        setExperience((prevExperience) => {
+            const updatedExperience = [...prevExperience];
+            updatedExperience.splice(experienceIndex, 1);
+            return updatedExperience;
+        });
     };
+
     const addAvailability = () => {
         setAvailabilityCount((prevCount) => prevCount + 1);
     };
 
-    const removeAvailability = (index) => {
+    const removeAvailability = (availabilityIndex) => {
         setAvailabilityCount((prevCount) => prevCount - 1);
+        setAvailability((prevAvailability) => {
+            const updatedAvailability = [...prevAvailability];
+            updatedAvailability.splice(availabilityIndex, 1);
+            return updatedAvailability;
+        });
     };
 
     const formItemLayout = {
@@ -124,20 +146,49 @@ export const JobForm = () => {
                         style={{ display: "flex", marginBottom: 8 }}
                         align="start"
                     >
-                        <Input placeholder="Job Title" style={{ width: 200 }} />
-                        <Select
-                            placeholder="Select duration"
-                            style={{ width: 200 }}
+                        <Form.Item
+                            noStyle
+                            name={["experience", index, "jobTitle"]}
+                            rules={[
+                                {
+                                    required: true,
+                                    message: "Please enter the job title!",
+                                },
+                            ]}
                         >
-                            <Option value="1">1 year</Option>
-                            <Option value="2">2 years</Option>
-                            <Option value="3">3 years</Option>
-                            <Option value="4">4 years</Option>
-                            <Option value="5+">5 years</Option>
-                        </Select>
+                            <Input
+                                placeholder="Job Title"
+                                style={{ width: 200 }}
+                            />
+                        </Form.Item>
+                        <Form.Item
+                            noStyle
+                            name={["experience", index, "duration"]}
+                            rules={[
+                                {
+                                    required: true,
+                                    message: "Please select the duration!",
+                                },
+                            ]}
+                        >
+                            <Select
+                                placeholder="Select duration"
+                                style={{ width: 200 }}
+                            >
+                                <Option value="1year">1 year</Option>
+                                <Option value="2years">2 years</Option>
+                                <Option value="3years">3 years</Option>
+                                <Option value="4years">4 years</Option>
+                                <Option value="5+years">5 years</Option>
+                            </Select>
+                        </Form.Item>
                         {index > 0 && (
-                            <Button onClick={() => removeExperience(index)}>
-                                Remove Experience
+                            <Button
+                                type="danger"
+                                onClick={() => removeExperience(index)}
+                                style={{ marginLeft: 8 }}
+                            >
+                                Remove
                             </Button>
                         )}
                     </Space>
@@ -146,27 +197,54 @@ export const JobForm = () => {
                     Add Experience
                 </Button>
             </Form.Item>
-            <Form.Item label="Availability Time" name="availability">
+
+            <Form.Item label="Availability" name="availability">
                 {Array.from({ length: availabilityCount }, (_, index) => (
                     <Space
                         key={index}
                         style={{ display: "flex", marginBottom: 8 }}
                         align="start"
                     >
-                        <Select defaultValue="Monday" style={{ width: 200 }}>
-                            <Option value="Monday">Monday</Option>
-                            <Option value="Tuesday">Tuesday</Option>
-                            <Option value="Wednesday">Wednesday</Option>
-                            <Option value="Thursday">Thursday</Option>
-                            <Option value="Friday">Friday</Option>
-                        </Select>
-                        <Select defaultValue="9am-12pm" style={{ width: 200 }}>
-                            <Option value="9am-12pm">9am-12pm</Option>
-                            <Option value="1pm-4pm">1pm-4pm</Option>
-                        </Select>
+                        <Form.Item
+                            noStyle
+                            name={["availability", index, "day"]}
+                            rules={[
+                                {
+                                    required: true,
+                                    message: "Please enter the day!",
+                                },
+                            ]}
+                        >
+                            <Select placeholder="Day" style={{ width: 200 }}>
+                                <Option value="Monday">Monday</Option>
+                                <Option value="Tuesday">Tuesday</Option>
+                                <Option value="Wednesday">Wednesday</Option>
+                                <Option value="Thursday">Thursday</Option>
+                                <Option value="Friday">Friday</Option>
+                            </Select>
+                        </Form.Item>
+                        <Form.Item
+                            noStyle
+                            name={["availability", index, "time"]}
+                            rules={[
+                                {
+                                    required: true,
+                                    message: "Please enter the time!",
+                                },
+                            ]}
+                        >
+                            <Select placeholder="Time" style={{ width: 200 }}>
+                                <Option value="9am-12pm">9am-12pm</Option>
+                                <Option value="1pm-4pm">1pm-4pm</Option>
+                            </Select>
+                        </Form.Item>
                         {index > 0 && (
-                            <Button onClick={() => removeAvailability(index)}>
-                                Remove Availability
+                            <Button
+                                type="danger"
+                                onClick={() => removeAvailability(index)}
+                                style={{ marginLeft: 8 }}
+                            >
+                                Remove
                             </Button>
                         )}
                     </Space>
@@ -175,6 +253,7 @@ export const JobForm = () => {
                     Add Availability
                 </Button>
             </Form.Item>
+
             <Form.Item>
                 <Button
                     {...tailFormItemLayout}
