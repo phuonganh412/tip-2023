@@ -24,4 +24,3 @@
 4. Request other teamate peer review your code
 5. Rebase `master` and merge into it
 
-# *Don't push your code directly to master*
